@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
 const authUser = require("./routes/user");
+const authPost = require("./routes/posts");
 app.use(express.json());
 mongoose.set("strictQuery", false);
 mongoose
@@ -19,6 +20,7 @@ mongoose
 
 app.use("/auth", authRoute);
 app.use("/users", authUser);
+app.use("/posts", authPost);
 app.listen("5000", () => {
     console.log("backend running");
 });
